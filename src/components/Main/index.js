@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import AllRoutines from './AllRoutines';
 
 const Main = (props) => {
@@ -7,7 +8,11 @@ const Main = (props) => {
   return (
     <>
       <h1>Main Component</h1>
-      <AllRoutines routines={routines} />
+      {/* ROUTES HERE */}
+      <Routes>
+        <Route path="/routines" element={<AllRoutines routines={routines} />} />
+        <Route path="/" element={<h1>Main home page</h1>} />
+      </Routes>
     </>
   );
 };

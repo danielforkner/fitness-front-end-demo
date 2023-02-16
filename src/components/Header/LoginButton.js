@@ -6,7 +6,7 @@ const LoginButton = ({ setToken, setUser }) => {
     const response = await loginUser();
     if (response.token) {
       setToken(response.token);
-      localStorage.setItem('token', response.token);
+      window.localStorage.setItem('token', response.token);
       setUser(response.user);
     }
   };
