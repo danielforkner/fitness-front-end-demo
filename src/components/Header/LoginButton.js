@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { loginUser } from '../../api';
 
-const LoginButton = ({ setToken, setUser }) => {
+const LoginButton = ({ setUser }) => {
+  const [error, setError] = useState({});
+
   const handleClick = async () => {
     const response = await loginUser();
     if (response.token) {
-      setToken(response.token);
       window.localStorage.setItem('token', response.token);
       setUser(response.user);
+    } else {
+      setError(response);
     }
   };
 
-  return <button onClick={handleClick}>Login</button>;
+  return (
+    <div>
+      <button onClick={handleClick}>Login</button>
+      {error.message && (
+        <p style={{ color: 'red', fontWeight: '900' }}>{error.message}</p>
+      )}
+    </div>
+  );
 };
 
 export default LoginButton;

@@ -1,12 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import LoginButton from './LoginButton';
+import LogoutButton from './LogoutButton';
 
-const Header = ({ setToken, setUser, user }) => {
-  // const setToken = props.setToken;
-  // const setUser = props.setUser;
-  // const user = props.User;
-
+const Header = ({ setUser, user }) => {
   return (
     <div>
       <h1>Header Component Will Go Here</h1>
@@ -16,11 +13,18 @@ const Header = ({ setToken, setUser, user }) => {
           <Link to="/routines">Go to Routines</Link>
         </li>
         <li>
+          <Link to="/activities">Go to Activities</Link>
+        </li>
+        <li>
           <Link to="/">Go Home</Link>
         </li>
       </ul>
       {user.username && <p>Welcome {user.username}!</p>}
-      <LoginButton setToken={setToken} setUser={setUser} />
+      {user.username ? (
+        <LogoutButton setUser={setUser} />
+      ) : (
+        <LoginButton setUser={setUser} />
+      )}
     </div>
   );
 };
