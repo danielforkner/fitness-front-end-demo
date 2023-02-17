@@ -2,9 +2,10 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import AllRoutines from './AllRoutines';
 import AllActivities from './AllActivities';
+import MyProfile from './MyProfile';
 
 const Main = (props) => {
-  const { routines, activities, setActivities } = props;
+  const { routines, setRoutines, activities, setActivities, user } = props;
 
   return (
     <div id="main">
@@ -21,7 +22,18 @@ const Main = (props) => {
             />
           }
         />
-        <Route path="/" element={<h1>Main home page</h1>} />
+        <Route
+          path="/profile"
+          element={
+            <MyProfile
+              setRoutines={setRoutines}
+              routines={routines}
+              user={user}
+              activities={activities}
+            />
+          }
+        />
+        <Route path="/" element={<h2>Main home page</h2>} />
       </Routes>
     </div>
   );

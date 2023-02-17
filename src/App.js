@@ -13,10 +13,12 @@ const App = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const fetchedRoutines = await getAllRoutines();
-      setRoutines(fetchedRoutines);
-      const fetchedActivities = await getAllActivities();
-      setActivities(fetchedActivities);
+      const [routines, activities] = await Promise.all([
+        getAllRoutines(),
+        getAllActivities(),
+      ]);
+      setRoutines(routines);
+      setActivities(activities);
     };
 
     fetchData();
@@ -38,11 +40,13 @@ const App = () => {
     <div>
       <Header setUser={setUser} user={user} />
       <div id="nav-main-container">
-        <Nav />
+        <Nav user={user} />
         <Main
           routines={routines}
+          setRoutines={setRoutines}
           activities={activities}
           setActivities={setActivities}
+          user={user}
         />
       </div>
       <h1>Footer Component Will Go Here</h1>

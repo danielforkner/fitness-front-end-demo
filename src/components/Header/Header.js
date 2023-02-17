@@ -4,10 +4,11 @@ import LogoutButton from './LogoutButton';
 
 const Header = ({ setUser, user }) => {
   return (
-    <div>
-      <h1>Header Component</h1>
-      <h3>Fitness Tracker Front-End</h3>
-      {user.username && <p>Welcome {user.username}!</p>}
+    <div id="header">
+      <div id="logo">
+        <h1>Routine Tracker</h1>
+        {user.username && <p>Welcome {user.username}!</p>}
+      </div>
       {user.username ? (
         <LogoutButton setUser={setUser} />
       ) : (

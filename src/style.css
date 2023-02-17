@@ -2,10 +2,27 @@
   display: flex;
 }
 
+#header {
+  border-bottom: 1px solid gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  padding-right: 1rem;
+}
+
+#logo {
+  display: flex;
+  flex-direction: column;
+}
+
 #main {
-  height: 100vh;
+  height: 80vh;
   overflow: hidden;
   padding-left: 1rem;
+  border-left: 1px solid gray;
 }
 
 #allRoutines {

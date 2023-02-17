@@ -4,7 +4,7 @@ const AllActivities = ({ activities }) => {
   console.log(activities);
   return (
     <div>
-      <h3>All Activities:</h3>
+      <h2>All Activities:</h2>
       {activities.map((activity) => {
         return (
           <div>
