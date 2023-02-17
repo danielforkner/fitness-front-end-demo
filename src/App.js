@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { getAllRoutines, getUser, getAllActivities } from './api';
 import Header from './components/Header/Header';
 import Main from './components/Main';
+import Nav from './components/Nav';
+import './style.css';
 
 const App = () => {
   const [routines, setRoutines] = useState([]);
@@ -35,12 +37,14 @@ const App = () => {
   return (
     <div>
       <Header setUser={setUser} user={user} />
-      <h1>Nav Component Will Go Here</h1>
-      <Main
-        routines={routines}
-        activities={activities}
-        setActivities={setActivities}
-      />
+      <div id="nav-main-container">
+        <Nav />
+        <Main
+          routines={routines}
+          activities={activities}
+          setActivities={setActivities}
+        />
+      </div>
       <h1>Footer Component Will Go Here</h1>
     </div>
   );

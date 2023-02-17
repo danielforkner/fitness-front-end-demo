@@ -1,0 +1,14 @@
+#nav-main-container {
+  display: flex;
+}
+
+#main {
+  height: 100vh;
+  overflow: hidden;
+  padding-left: 1rem;
+}
+
+#allRoutines {
+  height: 100%;
+  overflow: auto;
+}

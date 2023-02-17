@@ -4,7 +4,7 @@ const AllRoutines = (props) => {
   const routines = props.routines;
 
   return (
-    <>
+    <div id="allRoutines">
       <h2>All Routines</h2>
       {routines.map((routine) => {
         return (
@@ -16,7 +16,7 @@ const AllRoutines = (props) => {
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 
